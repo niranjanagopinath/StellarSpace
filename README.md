@@ -7,9 +7,11 @@ This platform was developed as part of a team project to provide interactive and
 🚀 My Contributions
 I contributed to the development of the following features:
 
-Planet Quizzes – Engaging quizzes to test users' knowledge about planets.
-Planet Info Page – Detailed information pages about each planet.
-Navigation Page – Seamless navigation to various space-related articles.
-Articles Page – A collection of curated articles on space and astronomy.
-LiveStream Page – A dedicated section for live streaming space-related events.
+*Planet Quizzes – Engaging quizzes to test users' knowledge about planets.
+*Planet Info Page – Detailed information pages about each planet.
+*Navigation Page – Seamless navigation to various space-related articles.
+*Articles Page – A collection of curated articles on space and astronomy.
+*LiveStream Page – A dedicated section for live streaming space-related events.
+
+
 This project aimed to create an immersive learning experience for space enthusiasts of all ages.
