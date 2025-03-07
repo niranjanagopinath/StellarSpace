@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jupiter </title>
+</head>
+<style>
+    .divheader{
+    gap: 40px;
+    padding-right: 10px ;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="planetnew.css">
+<link rel="stylesheet" href="header.css">
+<body>
+
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="slideContainer active">
+            <div class="slide">
+                <video src="jupiterr1.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="jupiterr2.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="jupiterr3.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div id="next" onclick="next()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050813.png" height="50" width="50" > </div>
+        <div id="prev" onclick="prev()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050812.png" height="50" width="50"> </div>
+    </div>
+    <br> <br>
+    <center> <h1 style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: bolder;"> F A C T S </h1></center>
+    <div class="fcontainer">
+        <div class="card">
+            <div class="image"> <img src="https://scx2.b-cdn.net/gfx/news/hires/2017/evidencethat.jpg"> </div>
+            <div class="content">  It is covered in swirling cloud stripes. It has big storms like the Great Red Spot, which has been going for hundreds of years. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://www.thoughtco.com/thmb/AK2JHIHpHyEWUBipZYXuBP7QM0w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/view-of-jupiter-from-one-of-its-moons-10177115-58e414955f9b58ef7e500e7a.jpg"> </div>
+            <div class="content"> Jupiter has auroras, just like Earth! Not only are the auroras huge in size, they are also hundreds of times more energetic than auroras on Earth.   </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://cdn.mos.cms.futurecdn.net/izhLVcfyzvFkA6mYXRVzTi-1200-80.jpg"> </div>
+            <div class="content"> Jupiter has been visited or passed by several spacecraft, orbiters and probes, such as Pioneer 10 and 11, Voyager 1 and 2, Cassini, New Horizons, and Juno. </div>
+        </div>
+    </div>
+    <script src="planetScript.js"></script>
+</body>
+</html>

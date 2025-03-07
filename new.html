@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="koko.css">
+
+<script>
+      function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
+}
+</script>
+<style>
+    body{
+        overflow: hidden;
+         
+      background-image: url("https://i.pinimg.com/originals/1a/7d/cc/1a7dcc374628bc21f6ef890463a77eae.png");
+      animation: side 75s alternate infinite;
+    }
+
+    @keyframes side {
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 1000px 0;
+  }
+}
+</style>
+
+<body>
+
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+
+    
+    <div class="wrapper">
+        <div class="container" >
+            <input type="radio" name="slide" id="c1" >
+            <label for="c1" class="card" >
+                <div class="row">
+                <div class="icon">1</div>
+                <div class="despription">
+                    <h4>
+                        Dusky Diamonds
+                    </h4>
+                   <p onclick="redirectToPage('galaxy.html')">Unveiling the Secrets of Dwarf Galaxies</p>
+                    
+                </div>
+            </div>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="card">
+                <div class="row">
+                <div class="icon">2</div>
+                <div class="despription">
+                    <h4>
+                        Into the Abyss
+                    </h4>
+                   <p onclick="redirectToPage('bh.html')">Unveiling the Mysteries of Black Holes</p>
+                </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="card">
+                <div class="row">
+                <div class="icon">3 </div>
+                <div class="despription">
+                    <h4>
+                        Celestial Canvas
+                    </h4>
+                    <p onclick="redirectToPage('nebula.html')"> The Dazzling Beauty and Profound Secrets of Nebulae</p>
+                </div>
+            </div>
+            </label>
+            <input type="radio" name="slide" id="c4" >
+            <label for="c4" class="card">
+                <div class="row">
+                <div class="icon">4</div>
+                <div class="despription">
+                    <h4>
+                        Astronaut Training
+                    </h4>
+                     <p onclick="redirectToPage('astro.html')">More Than Just Rocket Science </p>
+                </div>
+            </div> 
+            </label> <input type="radio" name="slide" id="c5">
+            <label for="c5" class="card">
+                <div class="row">
+                <div class="icon">5</div>
+                <div class="despription">
+                    <h4>
+                        Lord of the Rings
+                    </h4>
+                   <p onclick="redirectToPage('starry.html')">Exploring Saturn's Majesty</p>
+                </div>
+                </div>
+            </label>
+
+                </div>
+    </div>
+    
+</body>
+</html>

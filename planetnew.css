@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    
+}
+
+body{
+    background: url('https://img.freepik.com/premium-vector/space-background-with-stars-vector-illustration_97886-319.jpg');
+    font-family: Verdana;
+}
+.container{
+    position: relative;
+}
+.container .slideContainer .slide {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+.container .slideContainer .slide video {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.container .slideContainer{
+    display: none;
+}
+.container .slideContainer.active{
+    display: block;
+}
+.container #prev, 
+.container #next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    cursor: pointer;
+    text-align: center;
+}
+.container #next{
+    right: 0;
+}
+.container #prev{
+    left: 0;
+}
+
+.fcontainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px 50px;
+    padding: 100px 50px;
+}
+.fcontainer .card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 350px;
+    height: 270px;
+    background:  linear-gradient(
+        45deg,
+        #290b50,#161167,#193a6e, #4e3bda, 
+        #155786,#4517a1,#8576FF, #0d0854 
+    );
+    border-radius: 20px;
+}
+.fcontainer .card:hover{
+    height: 270px;
+}
+.fcontainer .card .image{
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.fcontainer .card:hover .image{
+    top: -100px;
+    scale: 0.75;
+}
+.fcontainer .card .image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.fcontainer .card .content{
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+.fcontainer .card:hover .content{
+    top: 150px;
+    height: 250px;
+    color: white;
+}

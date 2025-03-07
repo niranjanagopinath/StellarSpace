@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Neptune </title>
+</head>
+<style>
+    .divheader{
+    gap: 40px;
+    padding-right: 10px ;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="planetnew.css">
+<link rel="stylesheet" href="header.css">
+<body>
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="slideContainer active">
+            <div class="slide">
+                <video src="neptunee1.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="neptunee2.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="neptunee3.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div id="next" onclick="next()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050813.png" height="50" width="50" > </div>
+        <div id="prev" onclick="prev()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050812.png" height="50" width="50"> </div>
+    </div>
+    <br> <br>
+    <center> <h1 style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: bolder;"> F A C T S </h1></center>
+    <div class="fcontainer">
+        <div class="card">
+            <div class="image"> <img src="https://nypost.com/wp-content/uploads/sites/2/2021/11/astrology-neptune-sign-1a.jpg?quality=75&strip=all"> </div>
+            <div class="content"> Neptune was discovered in 1846 by Urbain Le Verrier, John Couch Adams, and Johann Galle. Only Voyager 2 has visited Neptune. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://www.astrologyzone.com/wp-content/uploads/2016/04/AZ_Planets_Neptune1.jpg"> </div>
+            <div class="content"> It's an ice giant. It is made of a thick soup of water, ammonia, and methane flowing over a solid core about the size of Earth. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://starwalk.space/gallery/images/neptune-at-opposition-2021/1920x1080.jpg"> </div>
+            <div class="content"> Its atmosphere is made of hydrogen, helium, and methane. The methane gives Neptune the blue color. Neptune has six rings, but they're very hard to see. </div>
+        </div>
+    </div>
+    <script src="planetScript.js"></script>
+</body>
+</html>

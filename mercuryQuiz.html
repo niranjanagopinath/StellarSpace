@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Mercury Quiz </title>
+  <link href="header.css" rel="stylesheet">
+  <link href="quiz.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <a href="planets.html">
+    <div class="header"> 
+
+      <span class="logo"><strong>stellarspace</strong></span>
+      <div class="divheader">
+        <a href="intro.html"><span>Planets</span></a>
+        <a href="quizintro.html"><span>Quiz</span></a>
+        <a href="livestream.html"><span>LiveStream</span></a>
+        <a href="blog home.html"><span>Blog</span></a>
+      </div>
+  </div>
+  </a>
+<div class="quizBg">
+  <h1> Mercury Quiz </h1>
+  <div class="quiz">
+    <h2 id="question"></h2>
+    <div id="answers">
+      <button class="button"> </button>
+      <button class="button"> </button>
+      <button class="button"> </button>
+      <button class="button"> </button>
+    </div>
+    <button id="nextButton">  </button>
+
+  </div>
+
+</div>
+
+<script>
+const Quiz = [
+  {
+    question: "What is the closest planet to the Sun?",
+    answers: ["A) Venus", "B) Earth", "C) Mars", "D) Mercury"],
+    correctAnswer: 3
+  },
+  {
+    question: "Due to its proximity to the Sun, what is one of the most distinctive features of Mercury's surface?",
+    answers: ["A) Large oceans", "B) Lush vegetation", "C) Extreme temperature variations", "D) Active volcanoes"],
+    correctAnswer: 2
+  },
+  {
+    question: "What is the reason Mercury has no significant atmosphere?",
+    answers: ["A) Strong magnetic field", "B) Lack of volcanic activity", "C) Low gravity", "D) Absence of water"],
+    correctAnswer: 2
+  },
+  {
+    question: "What is the name of the geological feature that covers a large portion of Mercury's surface?",
+    answers: ["A) Craters", "B) Ridges", "C) Plains", "D) Valleys"],
+    correctAnswer: 0
+  },
+  {
+    question: "Unlike most planets, Mercury has a very weak magnetic field. Why is this?",
+    answers: ["A) Slow rotation", "B) Lack of a molten core", "C) Absence of atmosphere", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Mercury has two distinct faces. What are these faces called?",
+    answers: ["A) Day side and night side", "B) Hemispheres", "C) Caloris Basin and Schiaparelli crater", "D) Hot side and cold side"],
+    correctAnswer: 1
+  },
+  {
+    question: "Due to its tidal locking with the Sun, what phenomenon occurs on Mercury?",
+    answers: ["A) Seasons", "B) Extreme temperature swings between day and night", "C) Frequent eclipses", "D) Faster rotation than most planets"],
+    correctAnswer: 1
+  },
+  {
+    question: "What is the name of the largest crater on Mercury?",
+    answers: ["A) Valles Marineris", "B) Hellas Planitia", "C) Schiaparelli crater", "D) Caloris Basin"],
+    correctAnswer: 3
+  },
+  {
+    question: "Despite being the smallest planet, Mercury is denser than Earth. Why?",
+    answers: ["A) Larger iron core relative to its size", "B) Thicker atmosphere", "C) More volcanic activity", "D) Presence of liquid water"],
+    correctAnswer: 0
+  },
+  {
+    question: "Spacecraft missions exploring Mercury face significant challenges. What is one of the main difficulties?",
+    answers: ["A) Intense radiation from the Sun", "B) Extreme cold temperatures", "C) Dense atmosphere", "D) Long travel time from Earth"],
+    correctAnswer: 0
+  }
+];
+
+
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

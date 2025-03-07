@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Earth Quiz </title>
+  <link href="header.css" rel="stylesheet">
+  <link href="quiz.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <a href="planets.html">
+    <div class="header"> 
+
+      <span class="logo"><strong>stellarspace</strong></span>
+      <div class="divheader">
+        <a href="intro.html"><span>Planets</span></a>
+        <a href="quizintro.html"><span>Quiz</span></a>
+        <a href="livestream.html"><span>LiveStream</span></a>
+        <a href="blog home.html"><span>Blog</span></a>
+      </div>
+  </div>
+  </a>
+<div class="quizBg">
+  <h1>Earth Quiz </h1>
+  <div class="quiz">
+    <h2 id="question"></h2>
+    <div id="answers">
+      <button class="button"> </button>
+      <button class="button"> </button>
+      <button class="button"> </button>
+      <button class="button"> </button>
+    </div>
+    <button id="nextButton">  </button>
+
+  </div>
+
+</div>
+
+<script>
+
+    const earthQuiz = [
+  {
+    question: "What is the closest star to Earth?",
+    answers: ["A) Alpha Centauri", "B) Proxima Centauri", "C) Sun", "D) Sirius"],
+    correctAnswer: 2
+  },
+  {
+    question: "What is the largest ocean on Earth by surface area?",
+    answers: ["A) Atlantic Ocean", "B) Pacific Ocean", "C) Indian Ocean", "D) Arctic Ocean"],
+    correctAnswer: 1
+  },
+  {
+    question: "What is the approximate percentage of Earth's surface covered by water?",
+    answers: ["A) 20%", "B) 30%", "C) 70%", "D) 90%"],
+    correctAnswer: 2
+  },
+  {
+    question: "What layer of Earth's atmosphere contains most of the oxygen we breathe?",
+    answers: ["A) Troposphere", "B) Stratosphere", "C) Mesosphere", "D) Thermosphere"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the name of the molten iron core at the center of Earth?",
+    answers: ["A) Crust", "B) Mantle", "C) Outer Core", "D) Inner Core"],
+    correctAnswer: 3
+  },
+  {
+    question: "What is the highest mountain on Earth?",
+    answers: ["A) Mount Everest", "B) K2", "C) Kangchenjunga", "D) Lhotse"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the driest desert on Earth by average annual precipitation?",
+    answers: ["A) Sahara Desert", "B) Atacama Desert", "C) Gobi Desert", "D) Australian Outback"],
+    correctAnswer: 1
+  },
+  {
+    question: "What is the name of the gaseous layer surrounding Earth?",
+    answers: ["A) Hydrosphere", "B) Lithosphere", "C) Atmosphere", "D) Biosphere"],
+    correctAnswer: 2
+  },
+  {
+    question: "How many continents are there on Earth?",
+    answers: ["A) 5", "B) 6", "C) 7", "D) 8"],
+    correctAnswer: 2 
+  },
+  {
+    question: "What is the approximate age of Earth in billions of years?",
+    answers: ["A) 1", "B) 4.5", "C) 10", "D) 15"],
+    correctAnswer: 1
+    
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=earthQuiz[currentQuestion].question;
+  earthQuiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = earthQuiz[currentQuestion].answers.indexOf(selectedButton.textContent) == earthQuiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (earthQuiz[currentQuestion].answers.indexOf(button.textContent) == earthQuiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<earthQuiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<earthQuiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

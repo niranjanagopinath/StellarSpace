@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Jupiter Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Jupiter Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+const Quiz = [
+  {
+    question: "Jupiter is the largest planet in our solar system. By how much is it more massive than all the other planets combined?",
+    answers: ["A) About twice as massive", "B) More than double its mass", "C) Ten times more massive", "D) Hundreds of times more massive"],
+    correctAnswer: 3
+  },
+  {
+    question: "Jupiter is classified as a gas giant. What is the primary component of its atmosphere?",
+    answers: ["A) Nitrogen", "B) Oxygen", "C) Hydrogen", "D) Helium"],
+    correctAnswer: 2
+  },
+  {
+    question: "The Great Red Spot on Jupiter is a famous anticyclonic storm. How big is it compared to Earth?",
+    answers: ["A) Slightly smaller", "B) About the same size", "C) Several times larger", "D) Dozens of times larger"],
+    correctAnswer: 2
+  },
+  {
+    question: "Jupiter has a strong magnetic field. What phenomenon is caused by this magnetic field?",
+    answers: ["A) Aurorae near the poles", "B) Increased solar radiation", "C) Faster rotation speed", "D) Thicker atmosphere"],
+    correctAnswer: 0
+  },
+  {
+    question: "Jupiter has many moons. How many confirmed moons does Jupiter have?",
+    answers: ["A) Dozens", "B) Hundreds", "C) Thousands", "D) It has no moons"],
+    correctAnswer: 1 
+  },
+  {
+    question: "Some of Jupiter's moons are quite large. Which moon is the largest in our solar system, even bigger than Mercury?",
+    answers: ["A) Io", "B) Europa", "C) Ganymede", "D) Callisto"],
+    correctAnswer: 2
+  },
+  {
+    question: "Scientists are particularly interested in some of Jupiter's moons due to the possibility of what?",
+    answers: ["A) Liquid water oceans beneath icy surfaces", "B) Active volcanic activity", "C) Presence of a suitable atmosphere", "D) All of the above"],
+    correctAnswer: 0
+  },
+  {
+    question: "Jupiter has faint rings made up of what material?",
+    answers: ["A) Rocky debris", "B) Ice particles", "C) Gas and dust", "D) All of the above"],
+    correctAnswer: 1
+  },
+  {
+    question: "Jupiter's fast rotation creates a bulge at its equator. How does its equatorial diameter compare to its polar diameter?",
+    answers: ["A) They are about the same size", "B) The equatorial diameter is slightly larger", "C) The equatorial diameter is significantly larger", "D) The polar diameter is larger"],
+    correctAnswer: 2
+  },
+  {
+    question: "Jupiter is a fascinating gas giant, but it doesn't have a solid surface like Earth. What is at the core of Jupiter?",
+    answers: ["A) A rocky core", "B) A molten iron core", "C) A dense liquid metallic hydrogen core", "D) A vast empty space"],
+    correctAnswer: 2
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+
+</body>
+</html>

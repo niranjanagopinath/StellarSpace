@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title> Mars Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Mars Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+const Quiz = [
+  {
+    question: "Mars is known as the Red Planet. What is the main reason for this color?",
+    answers: ["A) Presence of liquid oceans", "B) Thick atmosphere filled with dust particles", "C) Lush vegetation", "D) Active volcanic activity"],
+    correctAnswer: 1
+  },
+  {
+    question: "Mars is the second-smallest planet in our solar system. Which planet is the smallest?",
+    answers: ["A) Earth", "B) Venus", "C) Mercury", "D) Jupiter"],
+    correctAnswer: 2
+  },
+  {
+    question: "Does Mars have an atmosphere? If so, how does it compare to Earth's atmosphere?",
+    answers: ["A) No, Mars has no atmosphere.", "B) Yes, but it's much thinner and colder than Earth's.", "C) Yes, it's similar to Earth's in composition and pressure.", "D) Yes, it's thicker and warmer than Earth's."],
+    correctAnswer: 1
+  },
+  {
+    question: "What are the two moons of Mars called?",
+    answers: ["A) Phobos and Deimos", "B) Triton and Charon", "C) Io and Europa", "D) Titan and Rhea"],
+    correctAnswer: 0
+  },
+  {
+    question: "Scientists are particularly interested in searching for signs of life on Mars. What evidence might suggest past or present life?",
+    answers: ["A) Presence of liquid water", "B) Detection of methane gas", "C) Organic molecules in Martian rocks", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "The surface of Mars is marked by two distinct features: vast plains and enormous volcanoes. What is the name of the largest volcano in the solar system?",
+    answers: ["A) Mount Everest (Earth)", "B) Olympus Mons (Mars)", "C) Mount Fuji (Earth)", "D) Kilauea (Earth)"],
+    correctAnswer: 1
+  },
+  {
+    question: "Mars has polar ice caps made primarily of water ice. What else might these ice caps contain?",
+    answers: ["A) Frozen carbon dioxide (dry ice)", "B) Layers of ancient dust and rock", "C) Evidence of past Martian oceans", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Several rovers and landers have explored the surface of Mars. What was the name of the first successful rover to land on Mars in 1997?",
+    answers: ["A) Curiosity", "B) Spirit", "C) Opportunity", "D) Sojourner"],
+    correctAnswer: 3
+  },
+  {
+    question: "Future missions to Mars aim to send humans for the first time. What are some of the challenges astronauts might face on the Red Planet?",
+    answers: ["A) Thin atmosphere and extreme cold", "B) Lack of breathable air and water", "C) Intense radiation from the Sun", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Mars exploration is not only about scientific discovery but also about the potential for future human habitation. What resources on Mars could be crucial for sustaining human life?",
+    answers: ["A) Potential for extracting water ice", "B) Possibility of creating breathable air through technology", "C) Availability of raw materials for building shelters", "D) All of the above"],
+    correctAnswer: 3
+  }
+];
+
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

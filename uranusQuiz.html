@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Uranus Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Uranus Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+const Quiz = [
+  {
+    question: "Uranus is unique in our solar system because of...",
+    answers: ["A) Its extremely hot surface temperature", "B) Its very long day-night cycle", "C) Its large number of moons", "D) Its presence of rings"],
+    correctAnswer: 1
+  },
+  {
+    question: "How long does it take for Uranus to complete one rotation on its axis?",
+    answers: ["A) 24 hours", "B) 1 year", "C) 16 hours", "D) 20.1 Earth years"],
+    correctAnswer: 3
+  },
+  {
+    question: "Unlike most planets that rotate on a nearly upright axis, Uranus is tilted on its side. What is the approximate angle of its tilt?",
+    answers: ["A) 15 degrees", "B) 45 degrees", "C) 67 degrees", "D) 90 degrees"],
+    correctAnswer: 2
+  },
+  {
+    question: "What is the primary component of Uranus's atmosphere?",
+    answers: ["A) Nitrogen", "B) Oxygen", "C) Hydrogen", "D) Methane"],
+    correctAnswer: 3
+  },
+  {
+    question: "Uranus has a faint ring system compared to Saturn. What is the composition of these rings?",
+    answers: ["A) Rocky debris", "B) Ice particles and dust", "C) Gas and dust", "D) All of the above"],
+    correctAnswer: 1
+  },
+  {
+    question: "Uranus is an ice giant. What is the likely composition of its interior?",
+    answers: ["A) Rocky core surrounded by ice and gas", "B) Molten iron core with a thick atmosphere", "C) Solid rock with a thin atmosphere", "D) Mostly empty space"],
+    correctAnswer: 0
+  },
+  {
+    question: "Uranus has many moons. How many confirmed moons does Uranus currently have?",
+    answers: ["A) Dozens", "B) Hundreds", "C) Thousands", "D) It has no moons"],
+    correctAnswer: 1 
+  },
+  {
+    question: "Uranus's unusual tilt is thought to be the result of a collision with what?",
+    answers: ["A) A large asteroid", "B) Another planet", "C) A rogue comet", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Uranus is a distant and cold planet. What is the approximate surface temperature of Uranus?",
+    answers: ["A) Very hot, like Mercury", "B) Similar to Earth", "C) Extremely cold, below -200°C", "D) It varies greatly depending on location"],
+    correctAnswer: 2
+  },
+  {
+    question: "Exploring Uranus is challenging due to its great distance from Earth. How many spacecraft have visited Uranus so far?",
+    answers: ["A) None", "B) One", "C) Several", "D) Dozens"],
+    correctAnswer: 1 
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

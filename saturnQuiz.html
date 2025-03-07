@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Saturn Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1>Saturn Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+
+const Quiz = [
+  {
+    question: "Saturn is best known for its what?",
+    answers: ["A) Rocky rings", "B) Thick atmosphere", "C) Great Red Spot", "D) Prominent rings"],
+    correctAnswer: 3
+  },
+  {
+    question: "Saturn is the second largest planet in our solar system. Which planet is the largest?",
+    answers: ["A) Earth", "B) Mars", "C) Jupiter", "D) Uranus"],
+    correctAnswer: 2
+  },
+  {
+    question: "Saturn's rings are not solid, but rather made up of what?",
+    answers: ["A) Rocky debris and dust", "B) Ice particles and dust", "C) Gas and dust", "D) All of the above"],
+    correctAnswer: 1
+  },
+  {
+    question: "Saturn has many moons, with Titan being the largest. What is one of Titan's unique features?",
+    answers: ["A) Active volcanic activity", "B) Thick atmosphere with methane", "C) Vast liquid water oceans", "D) Rings of its own"],
+    correctAnswer: 1
+  },
+  {
+    question: "Saturn, like Jupiter, has a fast rotation. How does this rapid spin affect its shape?",
+    answers: ["A) It becomes slightly elongated at the equator", "B) It develops a noticeable bulge at the poles", "C) It has a perfectly spherical shape", "D) It wobbles on its axis"],
+    correctAnswer: 0
+  },
+  {
+    question: "Saturn has a strong magnetic field. What phenomenon is caused by this magnetic field?",
+    answers: ["A) Aurorae near the poles", "B) Increased solar radiation", "C) Faster rotation speed", "D) Thicker atmosphere"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the name of the gap between Saturn's rings known for its lack of particles?",
+    answers: ["A) Cassini Division", "B) Roche Limit", "C) Great Red Spot", "D) Oort Cloud"],
+    correctAnswer: 0
+  },
+  {
+    question: "Saturn's atmosphere is primarily composed of what gas?",
+    answers: ["A) Nitrogen", "B) Oxygen", "C) Hydrogen", "D) Helium"],
+    correctAnswer: 2
+  },
+  {
+    question: "Exploring Saturn and its moons is challenging. What is one of the main obstacles for spacecraft venturing into the Saturnian system?",
+    answers: ["A) Intense radiation from the Sun", "B) Extreme cold temperatures", "C) Strong gravitational pull", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Scientists continue to study Saturn and its moons to learn more about what?",
+    answers: ["A) Planetary formation and evolution", "B) The possibility of past or present life", "C) The behavior of gas giants and their moons", "D) All of the above"],
+    correctAnswer: 3
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

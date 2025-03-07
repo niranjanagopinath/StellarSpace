@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Uranus </title>
+</head>
+<style>
+    .divheader{
+    gap: 40px;
+    padding-right: 10px ;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="planetnew.css">
+<link rel="stylesheet" href="header.css">
+<body>
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="slideContainer active">
+            <div class="slide">
+                <video src="uranuss1.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="uranuss2.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="uranuss3.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div id="next" onclick="next()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050813.png" height="50" width="50" > </div>
+        <div id="prev" onclick="prev()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050812.png" height="50" width="50"> </div>
+    </div>
+    <br> <br>
+    <center> <h1 style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: bolder;"> F A C T S </h1></center>
+    <div class="fcontainer">
+        <div class="card">
+            <div class="image"> <img src="https://bgr.com/wp-content/uploads/2021/10/rsz_adobestock_318700318.jpg?quality=82&strip=all"> </div>
+            <div class="content"> Uranus also has faint rings. The inner rings are narrow and dark. The outer rings are brightly colored and easier to see. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://png.pngtree.com/background/20231017/original/pngtree-a-3d-rendering-of-uranus-in-the-vastness-of-space-picture-image_5595065.jpg"> </div>
+            <div class="content"> Uranus was discovered in 1781 by William Herschel in Great Britain. Uranus has only been visited by Voyager 2. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://media.gettyimages.com/id/1222768323/video/planet-uranus-spinning-in-deep-space.jpg?s=640x640&k=20&c=VwGoTvnHZwk6p0z-GFMfr5r8yuRLaaHzl92uRp0X7tE="> </div>
+            <div class="content"> Uranus's atmosphere contains H<sub>2</sub>, He, and CH<sub>4</sub>, and its striking blue-green hue is due to the haze created by methane and hydrogen sulfide gases. </div>
+        </div>
+    </div>
+    <script src="planetScript.js"></script>
+</body>
+</html>

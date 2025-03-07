@@ -1,0 +1,295 @@
+<html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+   
+<div class="wrapper">
+
+    <header class="header"><h1>Lord of the Rings</h1>
+    <p>
+      Exploring Saturn's Majesty
+    </p></header>
+    <figure class="featured-image-1">
+        <img src="https://c4.wallpaperflare.com/wallpaper/318/851/675/rings-of-saturn-wallpaper-preview.jpg">
+     </figure>
+    <div class="number-1">1</div>
+    <article class="article article-1">
+      <h2>The ringed giant</h2>
+      <p>Saturn, the sixth planet from the Sun, is a gas giant unlike any other.  Adorned with a dazzling system of icy rings, it's easily the most recognizable planet in our solar system.  Despite its enormous size, even wider than nine Earths, Saturn is surprisingly light due to its gaseous composition, mostly hydrogen and helium.  It's the least dense planet, even lighter than water!</p>
+    </article>
+    <figure class="featured-image-2">
+        <img src="https://cdn.mos.cms.futurecdn.net/ki3W49E49NmMtmXUUzg6r8.jpg">
+     </figure>
+    <div class="number-2">2</div>
+    <article class="article article-2">
+      <h2>the iconic rings</h2>
+      <p> Those iconic rings are made mostly of ice particles, along with some dust and rocks.  They're not solid structures, but rather millions of individual chunks orbiting Saturn.  The planet itself boasts a beautiful yellow hue from ammonia crystals in its atmosphere.</p>
+    </article>
+    <figure class="featured-image-3">
+        <img src="https://imgix.bustle.com/uploads/image/2023/1/9/5edffaec-a87d-477d-a2f6-b4ac738906ec-845_south_pole_colorcrop.jpeg?w=374&h=374&fit=crop&crop=faces&q=50&dpr=2">
+     </figure>
+    <div class="number-3">3</div>
+    <article class="article article-3">
+      <h2>Saturn and the moons</h2>
+      <p>Saturn has a whole family of moons, over 146!  Some, like Titan, are even bigger than Mercury.  Scientists are particularly interested in Enceladus, which spews water vapor from its icy surface, hinting at a hidden ocean beneath.  With its ongoing mysteries and captivating beauty, Saturn continues to be a captivating world for astronomers to explore.</p>
+    </article>
+    <figure class="featured-image-4">
+        <img src="https://cdn.mos.cms.futurecdn.net/hVFFUFy5dzzvKgYS9FywgL-320-80.jpg">
+     </figure>
+    <div class="number-4">4</div>
+    <article class="article article-4">
+      
+      <h2>not just a pretty face</h2>
+      <p>Saturn's not just a pretty face; it plays a crucial role in the solar system's dance.  The planet's immense gravity shapes the orbits of its moons and helps to confine the asteroid belt.  Studying Saturn provides valuable insights into the formation of our solar system and the potential for habitable environments beyond Earth.  The ongoing exploration of Saturn, through missions like Cassini and future endeavors, promises to unveil even more about this ringed giant and its captivating realm.</p>
+    </article>
+  </div>
+  <div class="back" onclick="redirectToPage('new.html')">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <span>B</span><br>
+    <span>A</span><br>
+    <span>C</span><br>
+    <span>K</span><br>
+
+  </div>
+</body>
+  </html>
+  <style>  
+
+
+  span{
+
+    color: black;
+    position: fixed;
+    z-index: 3;
+    opacity: 1;
+    padding-left: 4px;
+
+  }
+  .back {
+    height: 100%;
+    width: 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.25;
+    background-color: white; 
+    z-index: 2;
+    border-radius: 5px;
+  }
+
+  .back:hover{
+    opacity: 1;
+    transform: scale(1.4);
+    transition: 0.4s ease-in;
+  }
+
+  .back:not(hover){
+    opacity: 0.25;
+    transition: 0.4s ease-out;
+  }
+
+  
+  body {
+    background-image: linear-gradient(to bottom, rgb(4, 0, 7), rgb(4, 8, 42));
+    background-repeat: no-repeat;
+    color: #e8f5f3;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  h1, h2 {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+  
+  figure {
+    margin: 0;
+  }
+  
+  img {
+    height: auto;
+    width: 100%;  
+    transition: transform 1s;
+    border-radius: 10px;
+  }
+  img:hover{
+    box-shadow: #5a3079;
+    transform:scale(1.05);
+    cursor: pointer;
+    box-shadow: 0px 10px 30px -5px rgba(26, 10, 10, 0.8),
+                inset 0px 10px 30px -5px rgba(78, 114, 234, 0.8),
+                inset 1px -10px 30px -15px rgba(109, 32, 233, 0.8),
+                0px 0px 30px -5px rgba(153, 124, 232, 0.8),
+                1px 20px 30px -5px rgba(80, 71, 176, 0.8),
+                1px 20px 40px -5px rgba(195, 19, 101, 0.8);
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 24px;
+    max-width: 1000px;
+    position: relative;
+  }
+  
+  .wrapper > * {
+    grid-column: 1 / span 2;
+  }
+  
+  .header {
+    font-size: 1.5em;
+    grid-row: 1 / 2;
+  }
+  
+  header:after {
+    background: #4b1d7b;
+    content: "";
+    display: block;
+    height: 20px;
+    width: auto;
+  }
+  
+  .article {
+    text-align: right;
+  }
+  
+  .featured-image-1 {
+    grid-row: 2 / 3;
+  }
+  
+  .number-1 {
+    grid-row: 2 / 4;
+  }
+  
+  .featured-image-2, .number-2 {
+    grid-row: 4 / 5;
+  }
+  
+  .number-1, .number-4 {
+    align-self: end;
+    color: rgba(104, 93, 115, 0.5);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 480px;
+    line-height: 480px;
+    grid-column: 1 / 2;
+  }
+  
+  .article-1, .article-4 {
+    grid-column: 2 / 3;
+  }
+  
+  .featured-image-2, .number-2 {
+    align-self: end;
+  }
+  
+  .number-2 {
+    color: #eee;
+    font-size: 200px;
+    justify-self: end;
+    line-height: 160px;
+  }
+  
+  .number-3 {
+    background: black;
+    border-radius: 130px;
+    color: white;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 100px;
+    height: 130px;
+    line-height: 130px;
+    position: absolute;
+    grid-row: 6 / 7;
+    right: -20px;
+    text-align: center;
+    top: -20px;
+    width: 130px;
+  }
+  
+  .featured-image-3 img {
+    height: 100%;
+  }
+  
+  .number-4 {
+    padding-top: 10px;
+    font-size: 320px;
+    left: -20px;
+    line-height: 320px;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    background: rgb(54, 57, 59);
+    color: #fff;
+    font-weight: 1000;
+    cursor: pointer;
+  }
+  
+  .featured-image-4 img {
+    height: 100%;
+    position: relative;
+  }
+
+  @media (min-width: 600px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr 2fr);
+      margin: 24px auto;
+    }
+    
+    .header {
+      grid-column: 3 / 5;
+      width: 70%;
+    }
+    
+    .featured-image-1 {
+      grid-row: 1 / 3;
+    }
+    
+    .article-1 {
+      grid-row: 3 / 4;
+    }
+    
+    .article-2 {
+      grid-column: 4 / 5;
+      grid-row: 4 / 5;
+    }
+    
+    .featured-image-2, .number-2 {
+      grid-column: 3 / 5;
+      grid-row: 2 / 4;
+    }
+  
+    .featured-image-3, .number-3 {
+      grid-row: 4 / 6;
+    }
+    
+    .featured-image-4, .number-4 {
+      grid-column: 3 / 5;
+      grid-row: 5 / 6;
+    }
+    
+    .number-4 {
+      font-size: 320px;
+      grid-row: 5 / 7;
+    }
+    
+    .article-3, .article-4 {
+      grid-row: 6 / 7;
+    }
+    
+    .article-4 {
+      grid-column: 4 / 5;
+    }
+  }
+</style>
+<script>
+  function redirectToPage(pageUrl) {
+  window.location.href = pageUrl;
+}
+</script>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Neptune Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Neptune Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+const Quiz = [
+  {
+    question: "Neptune is the farthest planet from the Sun in our solar system. What is the name of the planet in eighth place?",
+    answers: ["A) Earth", "B) Mars", "C) Uranus", "D) Jupiter"],
+    correctAnswer: 2
+  },
+  {
+    question: "Neptune is another ice giant. What is the primary component of its atmosphere?",
+    answers: ["A) Nitrogen", "B) Oxygen", "C) Hydrogen", "D) Methane"],
+    correctAnswer: 3
+  },
+  {
+    question: "Neptune has a famous dark spot similar to Jupiter's Great Red Spot. What is the name of this dark spot?",
+    answers: ["A) The Great Dark Spot", "B) The Blue Marble", "C) The Eye of Neptune", "D) Neptune's Storm"],
+    correctAnswer: 0
+  },
+  {
+    question: "Neptune's winds are the fastest in our solar system. How fast can these winds reach?",
+    answers: ["A) A few hundred kilometers per hour", "B) Around the speed of sound", "C) Several times the speed of sound", "D) Close to the speed of light"],
+    correctAnswer: 2
+  },
+  {
+    question: "Neptune has a faint ring system, but unlike Saturn's rings, they are difficult to see. What is the composition of these rings?",
+    answers: ["A) Rocky debris", "B) Ice particles and dust", "C) Gas and dust", "D) All of the above"],
+    correctAnswer: 1
+  },
+  {
+    question: "Neptune has a blue color similar to Uranus. What is the reason for this blue hue?",
+    answers: ["A) Reflection of sunlight off its oceans", "B) Presence of water vapor in its atmosphere", "C) Absorption of red light by methane gas", "D) Reflection of light from its moons"],
+    correctAnswer: 2
+  },
+  {
+    question: "Neptune has several moons. Triton, the largest moon, is unique because...",
+    answers: ["A) It has a volcanic surface", "B) It orbits in the opposite direction of Neptune's rotation", "C) It has a thick atmosphere", "D) It's the only moon with rings"],
+    correctAnswer: 1
+  },
+  {
+    question: "Neptune is a very cold and distant planet. What is the approximate surface temperature of Neptune?",
+    answers: ["A) Similar to Earth", "B) Moderately warm", "C) Extremely cold, below -200°C", "D) It varies greatly depending on location"],
+    correctAnswer: 2
+  },
+  {
+    question: "Exploring Neptune is challenging due to its great distance. How many spacecraft have visited Neptune so far?",
+    answers: ["A) None", "B) One", "C) Several", "D) Dozens"],
+    correctAnswer: 1 
+  },
+  {
+    question: "Neptune, along with Uranus, helps us understand what about our solar system?",
+    answers: ["A) The formation of gas giants", "B) The existence of life beyond Earth", "C) The composition of the early solar system", "D) All of the above"],
+    correctAnswer: 3
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

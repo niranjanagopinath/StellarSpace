@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    
+}
+body{
+    background-image:url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700326851.jpg");
+    font-family: Quicksand;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    height: 400px;
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+
+}
+.card{
+    width:80px;
+    border-radius:.75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin:0 10px ;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(0.28, -0.03, 0,.99);
+    box-shadow:0px 10px 30px -5px rgba(26, 10, 10, 0.8);
+    
+
+                
+    
+                 
+
+}
+.card:hover{
+    transform: translateY(70) ;
+    box-shadow :0px 10px 30px -5px rgba(26, 10, 10, 0.8),
+    inset 0px 10px 30px -5px rgba(78, 114, 234, 0.8),
+    inset 1px -10px 30px -15px  rgba(109, 32, 233, 0.8),
+    0px 0px 30px -5px rgba(153, 124, 232, 0.8),
+    1px 20px 30px -5px rgba(80, 71, 176, 0.8),
+    1px 20px 40px -5px rgba(195, 19, 101, 0.8)
+
+
+}
+.card>.row{
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.card>.row>.icon{
+    background:#223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.card>.row>.despription{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+
+}
+.despription p{
+    color: rgb(241, 255, 250);
+    padding-bottom: 40px;
+}
+.despription h4{
+    text-transform: uppercase;
+}
+.despription p:hover{
+    font-weight: bolder;
+    
+}
+input{
+    display: none;
+}
+input:checked+label{
+    width: 600px;
+}
+input:checked+label.despription{
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+
+}
+.card[for="c1"]{
+    background-image: url("https://mrwallpaper.com/images/hd/aesthetic-galaxy-spiral-waves-27p806n1i63uxyr4.jpg");
+}
+.card[for="c2"]{
+    background-image: url("https://backiee.com/static/wallpapers/560x315/378027.jpg");
+}
+.card[for="c3"]{
+    background-image: url("https://img.freepik.com/free-photo/ultra-detailed-nebula-abstract-wallpaper-7_1562-752.jpg");
+    
+}
+.card[for="c4"]{
+    background-image: url("https://pics.craiyon.com/2024-01-05/BFQxZjNOROCKQgxqfOG7yg.webp");
+}
+.card[for="c5"]{
+    background-image: url("https://images5.alphacoders.com/132/1328084.png");
+    
+}
+

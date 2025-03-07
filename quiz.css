@@ -1,0 +1,107 @@
+
+@keyframes side {
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 1000px 0;
+  }
+  
+}
+body{
+  background: url('https://img.freepik.com/premium-vector/space-background-with-stars-vector-illustration_97886-319.jpg'); 
+  overflow: hidden;
+  font-family: Verdana;
+  height: 100vh;
+  animation: side 75s alternate infinite;
+}
+.quizBg {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  margin: 70px auto;
+  border-radius: 10px;
+  padding: 30px;
+  opacity: 70%;
+}
+.quizBg h1{
+  font-size: 30px;
+  color: #040b45;
+  border-bottom: 5px solid #040b45;
+  padding-bottom: 20px;
+}
+.quiz{
+  padding: 10px 0;
+}
+.quiz h2{
+  color: #040b45;
+  font-size: 18px;
+}
+.quiz button{
+  background: #fff;
+  color: #040b45;
+  width: 100%;
+  border: 1px solid #0e1981;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.button:hover:not([disabled]){
+  background:#000b60;
+  color: white;
+
+}
+.button:disabled{
+  cursor: no-drop;
+}
+#nextButton{
+  background:#040b45 ;
+  font-weight: 500;
+  color: rgb(255, 244, 240);
+  text-align: center;
+  width: 150px;
+  border:0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;  /*button center */
+}
+
+#nextButton:hover{
+  transform: scale(1.5);
+  transition: 0.3s ease-in;
+  background-color: white;
+  color: #040b45;
+}
+
+#nextButton:not(hover){
+
+  transition: 0.3s ease-in;
+}
+
+
+.correct{
+  background: #a8f9b9;
+}
+.incorrect{
+  background: #ff7777;
+}
+.home {
+  position: absolute;
+  top: 15px;
+  right: 15px; 
+  height: 40px; 
+  width: 100px; 
+  color: rgb(255, 255, 255); 
+  background-color: rgb(23, 30, 228); 
+  font-weight: bold; 
+  font-size: 20px; 
+  border-radius: 20px; 
+  border-color: aliceblue;
+  opacity: 90%;
+  cursor: pointer;
+}

@@ -1,0 +1,42 @@
+.divheader{
+    gap: 40px;
+    display: flex;
+    float: right;
+    border: 1px white;
+    color: white;
+    align-items: flex-end;
+  }
+
+.header {
+
+    border-bottom: 1px solid white; 
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Madimi One", sans-serif;
+    animation: fadein 5s 10s ease forwards
+}
+      
+.divheader a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.divheader a:hover {
+    transform: scale(1.2);
+}
+
+.divheader a:hover span {
+    background-image: linear-gradient(to right, rgb(54, 166, 203), rgb(170, 78, 241),rgb(54, 166, 203));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+}
+.logo{
+    background-image: linear-gradient(to right, rgb(54, 166, 203), rgb(170, 78, 241),rgb(54, 166, 203));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 25px;
+    
+}

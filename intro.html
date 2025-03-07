@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+     
+
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("https://i.pinimg.com/originals/1a/7d/cc/1a7dcc374628bc21f6ef890463a77eae.png");
+      height: 100vh; 
+      overflow: hidden; 
+      animation: scrollBackground 5s 5s  ease-in-out forwards;
+    }
+
+    img {
+      position: absolute;
+    }
+    
+    img:nth-child(1) {
+      animation: flyin1 2.5s ease forwards, flyback1 2.5s 4s ease-in forwards;
+    }
+
+    img:nth-child(2) {
+      animation: flyin2 2.5s ease forwards, flyback2 2.5s 4s ease-in forwards;
+    }
+
+    img:nth-child(3) {
+      animation: rocket 2s 4s ease-in forwards, rocketshake 0.1s 6s linear infinite, rocketout 2s 9s ease-out forwards;
+    }
+
+    .flame {
+    position: absolute;
+    top: 62%;
+    left: 47.5%;
+    opacity: 0; 
+    width: 28px;
+    border: 1px solid aqua;
+    background-color: aqua;
+  
+    animation: rocket 2s 4s ease-in forwards, rocketshake 0.1s 6s linear infinite, rocketout 2s 9s ease-out forwards,flamespeed 2s 4s 1,flamespeed 1s 6s 4,flamespeed 2s 8s 1;
+  }
+
+    .span {
+      position: absolute;
+      top: 45%;
+      left: 37%;
+      font-size: 70px;
+      color: white;
+      opacity: 0;
+      animation: fadein 3s 1.5s ease,fadeout 2.5s 4s forwards;
+      font-family: "Madimi One", sans-serif;
+    }
+    
+
+    
+    @keyframes flyin1 {
+      0% {
+  
+        opacity: 0;
+        transform: translate(-100vw, -100vh) rotate(-270deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(+70deg);
+      }
+    }
+  
+
+    @keyframes flyin2 {
+      0% {
+        opacity: 0;
+        transform: translate(100vw, 100vh) rotate(180deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(-90deg);
+      }
+    }
+
+    @keyframes flyback1 {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(+70deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-100vh, -100vw) rotate(-270deg);
+      }
+    }
+
+    @keyframes flyback2 {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(-90deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(100vw, 100vh) rotate(+180deg);
+      }
+    }
+
+    @keyframes rocket {
+      0% {
+        opacity: 1;
+        transform: translate(0, 500px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes rocketshake {
+      0% {
+        transform: translateY(2px);
+      }
+      100% {
+        transform: translateY(-2px);
+      }
+    }
+
+    @keyframes rocketout {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, -500px);
+      }
+    }
+
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeout{
+      0% {
+        opacity: 1;
+      }
+      
+      100% {
+        opacity: 0;
+      }
+
+    }
+
+
+    @keyframes scrollBackground {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 20000px;
+      }
+    }
+    @keyframes revolute {
+          100%{
+            background-position: 728px 0;
+           
+          }
+          
+        }
+
+        @keyframes flamespeed{
+        0%,100%{
+            height: 0px;
+        }
+        50%{
+            height: 50px;
+        }
+
+    }
+    
+
+
+        .sun{
+      position: absolute;
+      left: 34%;
+      top: 20%;
+      height: 400px;
+      width: 400px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXea71ULzLiYnO4rtuuRnT7CKr0lWVQ-STZpx9NCBjhQ&s);
+      box-shadow: 0px 0px 50px 10px rgb(211, 97, 21);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+      z-index: 2;
+    }
+
+    .mercury{
+      position: absolute;
+      left: 10%;
+      top: 35%;
+      height: 100px;
+      width: 100px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://cdn.pixabay.com/photo/2020/02/04/17/08/map-4818866_1280.jpg);
+      box-shadow: 0px 0px 100px  rgb(120, 113, 108);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+    }
+
+
+    .venus{
+      position: absolute;
+      left: 15%;
+      top: 55%;
+      height: 200px;
+      width: 200px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/72/Venus_map_NASA_JPL_Magellan-Venera-Pioneer.jpg);
+      box-shadow: 0px 0px 100px  rgb(91, 54, 29);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+    }
+
+
+    .earth{
+        position: absolute;
+      left: 40%;
+      top: 60%;
+      height: 250px;
+      width: 250px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://c4.wallpaperflare.com/wallpaper/613/779/733/planet-map-earth-continents-wallpaper-preview.jpg);
+      box-shadow: 0px 0px 100px  rgb(4, 9, 69);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+      z-index: 3;
+
+
+    }
+
+
+    .mars{
+        position: absolute;
+      right: 17%;
+      top: 60%;
+      height: 175px;
+      width: 175px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8aSKnq51LLYOX3qvSqFWB9vO3BVFCwmh-MBcLDKljQg&s);
+      box-shadow: 0px 0px 100px  rgb(65, 30, 6);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+      z-index: 1;
+
+
+    }
+
+
+    .jupiter{
+        position: absolute;
+      right: 7%;
+      top: 20%;
+      height: 250px;
+      width: 250px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqXqkG9cFsuk0_5yuAgI2uBk4SJOsZGHSY1hJ1J_c3Cg&s.png);
+      box-shadow: 0px 0px 100px  rgb(192, 186, 182);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+
+
+    }
+
+    .saturn{
+     position: absolute;
+      right: 25%;
+      top: 10%;
+      height: 150px;
+      width: 150px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/06/Saturn_map_by_Askaniy.png);
+      box-shadow: 0px 0px 100px  rgb(209,192,169);
+      animation: fadein 5s 10s ease forwards,revolute 50s alternate infinite;
+
+    }
+
+    .uranus{
+    position: absolute;
+      right: 45%;
+      top: 10%;
+      height: 125px;
+      width: 125px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjFcT-Yo4XQBp6aegWl8jXcltDGTOzzIxKYsHmWP3cOg&s);
+      box-shadow: 0px 0px 100px  rgb(2, 26, 45);
+      animation: fadein 5s 10.5s ease forwards,revolute 50s alternate infinite;
+      z-index: 0;
+
+    }
+
+    .neptune{
+    position: absolute;
+      left: 23%;
+      top: 13%;
+      height: 150px;
+      width: 150px;
+      color: white;
+      border-radius: 50%;
+      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e0763947-6f42-4d09-944f-c2d6f41c415b/dcaifld-8408b286-dfb4-4b94-9d36-029c36cc636f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwNzYzOTQ3LTZmNDItNGQwOS05NDRmLWMyZDZmNDFjNDE1YlwvZGNhaWZsZC04NDA4YjI4Ni1kZmI0LTRiOTQtOWQzNi0wMjljMzZjYzYzNmYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yODnyxRY22JiaqPEBgn28JKMhuisNqchBcC3QQSJO24);
+      box-shadow: 0px 0px 100px  rgb(99, 121, 162);
+      animation: fadein 5s 10.5s ease forwards,revolute 50s alternate infinite;
+      z-index: 0;
+
+    }
+
+    .ring{
+        position: absolute;
+        top: 1%;
+        right: 22%;
+        height: 250px;
+        width: 200px;
+        border: 30px solid rgb(205,190,167);
+        border-radius: 50%;
+        transform: rotate3d(0,1,1,130deg);
+        z-index: 1;
+        animation: fadein 5s 10.5s ease forwards;
+
+    }
+
+    .ring.ur{
+        top: 1%;
+        right: 43%;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        transform: rotate3d(0,1,1,160deg);
+        z-index: 1;
+        border: 20px solid rgb(110,164,199);
+        animation: fadein 5s 10.5s ease forwards;
+
+    }
+
+
+    .sun, .mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune ,.ring,.ring.ur{
+    opacity: 0;
+}
+
+.sun:hover,.mercury:hover, .venus:hover, .earth:hover, .mars:hover, .jupiter:hover, .saturn:hover, .uranus:hover, .neptune:hover {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+ .sun:not(hover),.mercury:not(:hover), .venus:not(:hover), .earth:not(:hover), .mars:not(:hover), .jupiter:not(:hover), .saturn:not(:hover), .uranus:not(:hover), .neptune:not(:hover) {
+    transition: transform 0.5s ease;
+}
+
+
+.span{
+  animation: fadein 3s 1s ease-in,fadeout 3s 4s ease-out forwards;
+}
+
+  </style>
+</head>
+<script>
+  function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
+}
+
+</script>
+<body>
+  
+    <img src="neonblue.png" style="top: -35%; left: -10%; height: 600px; width: 600px;">
+    <img src="neonred.png" style="bottom: -40%; right: -10%; height: 600px; width: 600px;">
+    <img src="rocket.png" style="top: 40%;left: 45%;opacity: 0;height: 150px;">
+    <div class="flame"></div>
+
+   <span class="logo span" style="position: absolute;left: 37%;top: 45%;font-size: 65px;font-family:Madimi One,Skranji ;opacity: 0;">stellarspace</span>
+   <div class="header" style="opacity: 0;"> 
+
+      <span class="logo"><strong>stellarspace</strong></span>
+      <div class="divheader">
+        <a href="intro.html"><span>Planets</span></a>
+        <a href="quizintro.html"><span>Quiz</span></a>
+        <a href="livestream.html"><span>LiveStream</span></a>
+        <a href="blog home.html"><span>Blog</span></a>
+      </div>
+  </div>
+    <div class="container">
+      <div class="sun" onclick="redirectToPage('sun.html')"></div>
+      <div class="mercury" onclick="redirectToPage('mercury.html')"></div>
+      <div class="venus" onclick="redirectToPage('venus.html')"></div>
+      <div class="earth" onclick="redirectToPage('earth.html')"></div>
+      <div class="mars" onclick="redirectToPage('mars.html')"></div>
+      <div class="jupiter" onclick="redirectToPage('jupiter.html')"></div>
+      <div class="saturn" onclick="redirectToPage('saturn.html')"></div>
+      <div class="ring"></div>
+      <div class="uranus" onclick="redirectToPage('uranus.html')"></div>
+      <div class="neptune" onclick="redirectToPage('neptune.html')"></div>
+      <div class="ring ur"></div>
+  </div>
+
+</body>
+</html>

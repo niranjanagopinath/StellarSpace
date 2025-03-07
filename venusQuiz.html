@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Venus Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Venus Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+
+const Quiz = [
+  {
+    question: "Venus is often referred to as Earth's twin planet. Why?",
+    answers: ["A) Similar size and mass", "B) Similar atmospheric composition", "C) Similar surface temperature", "D) All of the above"],
+    correctAnswer: 3
+  },
+  {
+    question: "Venus has the hottest surface temperature of any planet in the solar system, even hotter than Mercury. What is the main reason for this?",
+    answers: ["A) Closer proximity to the Sun", "B) Thick atmosphere of greenhouse gases", "C) Lack of a magnetic field", "D) Presence of liquid oceans"],
+    correctAnswer: 1
+  },
+  {
+    question: "What is the primary component of Venus's atmosphere?",
+    answers: ["A) Nitrogen", "B) Oxygen", "C) Carbon dioxide", "D) Helium"],
+    correctAnswer: 2
+  },
+  {
+    question: "The thick atmosphere of Venus creates a phenomenon known as what?",
+    answers: ["A) Aurora borealis", "B) The greenhouse effect", "C) Coronal mass ejections", "D) The solar wind"],
+    correctAnswer: 1
+  },
+  {
+    question: "The surface of Venus is covered in what type of geological features?",
+    answers: ["A) Ice caps", "B) Vast oceans", "C) Extensive plains", "D) Numerous volcanoes"],
+    correctAnswer: 3
+  },
+  {
+    question: "Despite its hot surface, Venus has clouds in its upper atmosphere. What are these clouds primarily composed of?",
+    answers: ["A) Water vapor", "B) Carbon dioxide", "C) Sulfuric acid", "D) Ammonia"],
+    correctAnswer: 2
+  },
+  {
+    question: "Venus has a very slow rotation on its axis. How long does it take for Venus to complete one rotation?",
+    answers: ["A) 24 hours", "B) 1 year", "C) 225 Earth days", "D) 243 Earth days"],
+    correctAnswer: 3
+  },
+  {
+    question: "Unlike Earth, Venus rotates in a retrograde direction. What does this mean?",
+    answers: ["A) It spins on an axis tilted at a large angle", "B) It rotates from east to west", "C) It has a shorter day than night", "D) It has a longer orbit than Earth"],
+    correctAnswer: 1
+  },
+  {
+    question: "Exploring the surface of Venus is very challenging due to the extreme conditions. What is one of the main obstacles?",
+    answers: ["A) Intense radiation", "B) Crushing atmospheric pressure", "C) Lack of sunlight", "D) Very cold temperatures"],
+    correctAnswer: 1
+  },
+  {
+    question: "Despite the harsh environment, some scientists believe Venus might have had a more habitable past. What evidence supports this idea?",
+    answers: ["A) Presence of ancient riverbeds", "B) Detection of water vapor in the upper atmosphere", "C) Volcanic activity suggesting internal water sources", "D) All of the above"],
+    correctAnswer: 3
+  }
+];
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 10!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mercury </title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="planetnew.css">
+<link rel="stylesheet" href="header.css" >
+<style>
+    .divheader{
+    gap: 40px;
+    padding-right: 10px ;
+  }
+</style>
+<body>
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="slideContainer active">
+            <div class="slide">
+                <video src="mercuryy1.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="mercuryy2.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="mercuryy3.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div id="next" onclick="next()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050813.png" height="50" width="50" > </div>
+        <div id="prev" onclick="prev()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050812.png" height="50" width="50"> </div>
+    </div>
+    <br> <br>
+    <center> <h1 style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: bolder;"> F A C T S </h1></center>
+    <div class="fcontainer">
+        <div class="card">
+            <div class="image"> <img src="https://media.wired.com/photos/5a7e7aa86c14324bc836c6e0/master/pass/mercury_in_false_color.jpg"> </div>
+            <div class="content"> Mercury's surface resembles that of Earth's Moon, scarred by many impact craters resulting from collisions with meteoroids and comets. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/10/wonders-of-mercury.jpg"> </div>
+            <div class="content"> Instead of an atmosphere, Mercury possesses a thin exosphere made up of atoms blasted off the surface by the solar wind and striking meteoroids. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://www.worldatlas.com/r/w1200/upload/33/23/56/planet-mercury.jpg"> </div>
+            <div class="content"> Mercury's exosphere is composed mostly of oxygen, sodium, hydrogen, helium, and potassium. </div>
+        </div>
+    </div>
+    <script src="planetScript.js"></script>
+</body>
+</html>

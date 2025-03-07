@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title> Mercury Quiz </title>
+    <link href="header.css" rel="stylesheet">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <a href="planets.html">
+      <div class="header"> 
+  
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+    </a>
+  <div class="quizBg">
+    <h1> Mercury Quiz </h1>
+    <div class="quiz">
+      <h2 id="question"></h2>
+      <div id="answers">
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+        <button class="button"> </button>
+      </div>
+      <button id="nextButton">  </button>
+  
+    </div>
+  
+  </div>
+  
+  <script>
+
+const Quiz = [
+  {
+    question: "Pluto was once classified as a planet but is now considered a dwarf planet. What is the main reason for this reclassification?",
+    answers: [
+      "a) It's too small and doesn't have a dominant gravitational influence in its orbital neighborhood.",
+      "b) It's too far from the Sun and doesn't receive enough sunlight.",
+      "c) Its atmosphere is too thin and doesn't trap enough heat.",
+      "d) Its surface is too rocky and doesn't have enough ice."
+    ],
+    correctAnswer: 0
+  },
+  {
+    question: "Pluto is located in a region beyond Neptune's orbit called the:",
+    answers: [
+      "a) Asteroid Belt",
+      "b) Kuiper Belt",  
+      "c) Oort Cloud",
+      "d) Scattered Disk"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "Pluto has a large moon named Charon. What's unique about this moon's relationship with Pluto?",
+    answers: [
+      "a) Charon is much larger than Pluto.",
+      "b) Charon and Pluto are tidally locked, meaning they always face each other with the same side.",  // Correct Answer
+      "c) Charon has a thicker atmosphere than Pluto.",
+      "d) Charon orbits Pluto at a very distant range."
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "Pluto's surface is composed of what materials?",
+    answers: [
+      "a) Mostly rock and dust",
+      "b) A mixture of rock, ice, and methane",  
+      "c) Primarily volcanic materials",
+      "d) Mostly hydrogen and helium gas"
+    ],
+    correctAnswer: 1
+  },
+  {
+    question: "Scientists are interested in exploring Pluto because:",
+    answers: [
+      "a) It might hold clues about the formation of our solar system.",  
+      "b) It's a potential source of valuable minerals.",
+      "c) It has a suitable atmosphere for future human habitation.",
+      "d) It's the only dwarf planet in our solar system."
+    ],
+    correctAnswer: 0
+  }
+];
+
+
+const question=document.getElementById("question");
+const answer=document.getElementById("answers");
+const next = document.getElementById("nextButton");
+
+let currentQuestion=0;
+let score=0;
+
+function startQuiz() {
+  currentQuestion=0;
+  score=0;
+  nextButton.innerHTML="Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  question.textContent=Quiz[currentQuestion].question;
+  Quiz[currentQuestion].answers.forEach(answer => {
+    const buttons = document.createElement("button");
+    buttons.innerHTML=answer;
+    buttons.classList.add("button");
+    answers.appendChild(buttons);
+    
+    buttons.addEventListener("click",selectAnswer);
+  }) 
+}
+
+function resetState() {
+  nextButton.style.display="none";
+  while(answer.firstChild) {
+    answer.removeChild(answer.firstChild);
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = Quiz[currentQuestion].answers.indexOf(selectedButton.textContent) == Quiz[currentQuestion].correctAnswer;
+  if (isCorrect) {
+    selectedButton.style.background="#a8f9b9";
+    score++;
+  } else {
+    selectedButton.style.background="#ff7777"
+  }
+  Array.from(answer.children).forEach(button => {
+    if (Quiz[currentQuestion].answers.indexOf(button.textContent) == Quiz[currentQuestion].correctAnswer) {
+      button.style.background="#a8f9b9";
+    } 
+    button.disabled=true;
+  });
+  nextButton.style.display="block";
+}
+
+function showScore() {
+  resetState();
+  question.innerHTML=`You scored ${score} out of 5!`;
+  nextButton.innerHTML="Play Again";
+  nextButton.style.display="block";
+}
+
+function handleNextButton() {
+  currentQuestion++;
+  if(currentQuestion<Quiz.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click",()=> {
+  if(currentQuestion<Quiz.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+
+})
+
+
+startQuiz();
+
+
+
+</script>
+</body>
+</html>

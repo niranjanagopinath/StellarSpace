@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+    
+}
+
+
+
+.divheader{
+    gap: 40px;
+    display: flex;
+    float: right;
+    border: 1px white;
+    color: white;
+    align-items: flex-end;
+  }
+
+.header {
+
+    border-bottom: 1px solid white; 
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Madimi One", sans-serif;
+    padding: 20px;
+}
+      
+.divheader a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.divheader a:hover {
+    transform: scale(1.2);
+}
+
+.divheader a:hover span {
+    background-image: linear-gradient(to right, rgb(54, 166, 203), rgb(170, 78, 241),rgb(54, 166, 203));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+}
+.logo{
+    background-image: linear-gradient(to right, rgb(54, 166, 203), rgb(170, 78, 241),rgb(54, 166, 203));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 25px;
+    
+}
+
+html,body {
+    background:url('https://img.freepik.com/premium-vector/space-background-with-stars-vector-illustration_97886-319.jpg');
+    
+}
+body{
+    margin: 200;
+    overflow-x: hidden;
+    font-family: Verdana;
+       
+    background-image: url("https://i.pinimg.com/originals/1a/7d/cc/1a7dcc374628bc21f6ef890463a77eae.png");
+    animation: side 75s alternate infinite;
+}
+
+
+    @keyframes side {
+  0%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 1000px 0;
+  }
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.gallery{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    padding: 30px;
+}
+.image:hover{
+    transform: scale(1.45);
+    z-index: 2;
+    transition: .9s;
+}
+.image:not(:hover){
+    transition:  0.9s ease ;
+}
+
+
+.caption{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    opacity: 0;
+    padding: 10px;
+    height: 50px;
+    background-color: #101116;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: medium;
+
+
+}
+.image:hover .caption {
+    opacity: 0.5;
+    animation: flyin 0.5s ease;
+}
+@keyframes flyin{
+    0%{
+        transform: translateY(25px);
+    }
+    100%{
+     
+        transform: translateY(0px);
+    }
+}
+  

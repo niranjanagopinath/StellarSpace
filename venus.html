@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Venus </title>
+</head>
+<style>
+    .divheader{
+    gap: 40px;
+    padding-right: 10px ;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="planetnew.css">
+<link rel="stylesheet" href="header.css">
+<body>
+
+    <div class="header" >
+        <span class="logo"><strong>stellarspace</strong></span>
+        <div class="divheader">
+          <a href="intro.html"><span>Planets</span></a>
+          <a href="quizintro.html"><span>Quiz</span></a>
+          <a href="livestream.html"><span>LiveStream</span></a>
+          <a href="blog home.html"><span>Blog</span></a>
+        </div>
+    </div>
+      
+    <div class="container">
+        <div class="slideContainer active">
+            <div class="slide">
+                <video src="venuss1.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="venuss2.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div class="slideContainer">
+            <div class="slide">
+                <video src="venuss3.mp4" muted autoplay loop></video>
+            </div>
+        </div>
+        <div id="next" onclick="next()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050813.png" height="50" width="50" > </div>
+        <div id="prev" onclick="prev()"> <img src="https://cdn-icons-png.flaticon.com/128/8050/8050812.png" height="50" width="50"> </div>
+    </div>
+    <br> <br>
+    <center> <h1 style="color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-weight: bolder;"> F A C T S </h1></center>
+    <div class="fcontainer">
+        <div class="card">
+            <div class="image"> <img src="https://starwalk.space/gallery/images/amazing-planet-venus/1920x1080.jpg"> </div>
+            <div class="content"> Venus rotates clockwise on its axis, which is opposite to most other planets in the solar system. This means that the sun rises in the west and sets in the east on Venus. </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://npr.brightspotcdn.com/dims4/default/6c1f4f1/2147483647/strip/true/crop/5120x2688+0+96/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb8%2F21%2Ff405501c483c954734e1aef690ce%2Fadobestock-101670864.jpeg"> </div>
+            <div class="content">  Venus has a surface temperature of nearly 482 °C, and the pressure of its carbon dioxide atmosphere is 95 times that of Earth's atmosphere.  </div>
+        </div>
+
+        <div class="card">
+            <div class="image"> <img src="https://www.worldatlas.com/upload/f1/22/dc/shutterstock-645382660.jpg"> </div>
+            <div class="content"> Venus has been visited by several spacecraft: Mariner 2, Mariner 5, Mariner 10, Pioneer Venus 1, Pioneer Venus 2, and an orbiter called Magellan. </div>
+        </div>
+    </div>
+    <script src="planetScript.js"></script>
+</body>
+</html>
